@@ -7,6 +7,7 @@ env:
   - CI_REPORT=shippable/testresults/junit.xml
 
 before_install:
+  - nvm install 0.10.33
   - export GOPATH=$SHIPPABLE_GOPATH
   - source $HOME/.gvm/scripts/gvm
   - gvm install go$SHIPPABLE_GO_VERSION
