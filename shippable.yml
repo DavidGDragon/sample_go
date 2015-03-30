@@ -7,7 +7,7 @@ env:
   - CI_REPORT=shippable/testresults/junit.xml
 
 before_install:
-  - apt-get install postgresql-9.4 
+  - sudo apt-get install postgresql-9.4 
   - export GOPATH=$SHIPPABLE_GOPATH
   - source $HOME/.gvm/scripts/gvm
   - gvm install go$SHIPPABLE_GO_VERSION
