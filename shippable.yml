@@ -7,8 +7,7 @@ env:
   - CI_REPORT=shippable/testresults/junit.xml
 
 before_install:
-  - source ~/.nvm/nvm.sh
-  - nvm install 0.10.33
+  - apt-get install postgresql-9.4 
   - export GOPATH=$SHIPPABLE_GOPATH
   - source $HOME/.gvm/scripts/gvm
   - gvm install go$SHIPPABLE_GO_VERSION
@@ -24,6 +23,6 @@ before_script:
   - mkdir -p shippable/codecoverage
 
 script:
-  - exit 1
+  - psql -c '\list'
   - go test -coverprofile=coverage.txt -covermode count ./
   - $GOPATH/bin/gocover-cobertura < coverage.txt > shippable/codecoverage/coverage.xml
