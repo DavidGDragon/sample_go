@@ -26,3 +26,7 @@ before_script:
 script:
   - go test -coverprofile=coverage.txt -covermode count ./
   - $GOPATH/bin/gocover-cobertura < coverage.txt > shippable/codecoverage/coverage.xml
+
+after_success:
+  - echo 'After'
+  - exit 1
