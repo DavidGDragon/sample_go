@@ -29,6 +29,5 @@ script:
 
 after_success:
   - echo 'After'
-  - exit 1
   
 archive: true
